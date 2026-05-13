@@ -1,6 +1,17 @@
-console.log("hey from index.ts file")
+import express from "express";
+import { ENV } from "./config/env";
 
-const num1: number = 5
-const num2: number = 10;
+const app = express();
 
-console.log(num1 + num2);
+app.get("/", (req, res) => {
+  res.json({
+    message: "Welcom to Productify API - PERN STACK",
+    endpoints: {
+      users: "/api/users",
+      products: "/api/products",
+      comments: "/api/comments",
+    },
+  });
+});
+
+app.listen(ENV.PORT, () => console.log("서버 동작 중 - PORT:3000"));
