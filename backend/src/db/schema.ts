@@ -29,7 +29,6 @@ export const comments = pgTable("comments", {
   createdAt: timestamp("created_at", { mode: "date" }).notNull().defaultNow(),
 });
 
-
 // Relations
 export const userRelations = relations(users, ({ many }) => ({
   products: many(products), // 한 유저 -> 많은 상품
